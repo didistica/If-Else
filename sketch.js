@@ -13,7 +13,7 @@ function setup() {
   build();
 }
 
-function build() {
+
   letters = [];
   margin = min(width, height) * 0.05;
   fontSize = constrain(width * 0.026, 14, 24);
@@ -34,7 +34,9 @@ function build() {
       if (ch !== " ") letters.push({ ch, bx: x, by: y, x, y });
       x += textWidth(ch) + tracking;
     }
-  }
+  
+    createCanvas(windowWidth, 600);
+  background(255, 45, 200);
 }
 
 function draw() {
@@ -78,5 +80,3 @@ function draw() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
  }
-
-
