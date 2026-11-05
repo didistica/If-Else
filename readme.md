@@ -6,4 +6,4 @@
 
 *Interações*
 Mover o rato	
-![alt text](Mover o Rato.png) As letras próximas afastam-se
+![Mover o Rato.png](<Mover o Rato.png>) As letras próximas afastam-se.
