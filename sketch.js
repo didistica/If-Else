@@ -1,47 +1,44 @@
-
-const phrase = "PERTURBATION/DISRUPTION";
-const influenceRadius = 125;
-const maxForce = 50;
+const phrase = "PERTUBATION/DISRUPTION";
+const influenceRadius = 175;
+const maxForce = 60;
 
 let letters = [];
 let rows, fontSize, tracking, lineGap, margin, startY;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight)
-  document.body.style.margin = "0";
+  createCanvas(windowWidth, windowHeight);
   textFont("Helvetica");
   build();
 }
 
-
+function build() {
   letters = [];
   margin = min(width, height) * 0.05;
   fontSize = constrain(width * 0.026, 14, 24);
-  tracking = fontSize * 0.15;
+  tracking = fontSize * 0.13;
   lineGap = fontSize * 1.35;
   startY = margin * 2;
-  rows = floor((height - margin * 4) / lineGap);
+  rows = floor((height - margin * 2) / lineGap);
 
   textSize(fontSize);
 
   // Cada linha repete a frase até chegar à margem direita
   for (let r = 0; r < rows; r++) {
     let y = startY + r * lineGap;
-    let x = margin +  fontSize * 0.55;
+    let x = margin + (r % 4) * fontSize * 0.55;
 
     for (let i = 0; x < width - margin; i++) {
       let ch = phrase[i % phrase.length];
       if (ch !== " ") letters.push({ ch, bx: x, by: y, x, y });
       x += textWidth(ch) + tracking;
     }
-  
-    createCanvas(windowWidth, 600);
-  background(255, 45, 200);
+  }
 }
 
 function draw() {
   background(0);
-// Linhas horizontais
+
+  // Linhas horizontais
   stroke(255, 65);
   strokeWeight(0.6);
   for (let r = 0; r < rows; r++) {
@@ -56,9 +53,14 @@ function draw() {
   for (let l of letters) {
     let d = dist(mouseX, mouseY, l.bx, l.by);
 
-    // Quanto mais perto do rato, maior a força
+    // Quanto mais perto do rato, + força
     let force = map(d, influenceRadius, 0, 0, maxForce, true);
-    if (mouseIsPressed) force *= 2;
+
+    if (mouseIsPressed) {
+      force *= 2;
+    } else {
+      force *= 1;
+    }
 
     // Afasta-se do rato e regressa suavemente à posição original
     let angle = atan2(l.by - mouseY, l.bx - mouseX);
@@ -69,6 +71,8 @@ function draw() {
       stroke(255, 90);
       strokeWeight(0.5);
       line(l.bx, l.by, l.x, l.y);
+    } else {
+      noStroke();
     }
 
     noStroke();
@@ -79,4 +83,5 @@ function draw() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
- }
+  build();
+}
