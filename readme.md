@@ -30,7 +30,10 @@ A composição ajusta-se ao tamanho da janela.
 
 Link's que me ajudaram no desenvolvimento deste projeto 
 **Canal da Patt Vira** https://www.youtube.com/@pattvira
+
 ![alt text](<Captura de ecrã 2026-11-05 121141.png>)
+
 Ela tem um canal focado em código criativo, e ver alguns dos vídeos dela relacionados com tipografia ajudou-me a concretizer este projeto. 
+
 ![alt text](image-2.png)
 
