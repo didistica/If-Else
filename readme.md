@@ -37,3 +37,7 @@ Ela tem um canal focado em código criativo, e ver alguns dos vídeos dela relac
 
 ![alt text](image-2.png)
 
+
+# O que explorei
+
+ A tensão entre ordem e desordem, tratando a tipografia como um material sensível ao gesto. A repetição cria um sistema estável, e a presença do utilizador, através do cursor, funciona como uma força que o perturba. Limitei o cartaz a branco sobre preto e a uma única fonte neutra, para que o foco fique no comportamento e não na decoração. 
